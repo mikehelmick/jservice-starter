@@ -11,13 +11,9 @@ jinja_environment = jinja2.Environment(
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        response = urllib2.urlopen('http://jservice.io/api/random')
-        content = response.read()
-        content_dict = json.loads(content)
-
-        answer = content_dict[0]['answer']
-        question = content_dict[0]['question']
-        category = content_dict[0]['category']['title']
+        answer = 'answer'
+        question = 'question'
+        category = 'category'
 
         template = jinja_environment.get_template('main.html')
         variables = {'answer': answer,
